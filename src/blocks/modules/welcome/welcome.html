@@ -17,5 +17,16 @@
 			Спрайт svg мулти-иконок {% include
 			'../../components/icons-group/icons-group-multi.html' %}
 		</div>
+		<h2 style="text-align: center; margin-bottom: 15px">
+			Список картинок берутся из JSON
+		</h2>
+		<ul class="gallery__list">
+			<!-- Loops through "images" array -->
+			{% for image in images %}
+			<li class="gallery__item">
+				<img src="{{image.src}}" alt="{{image.alt}}" />
+			</li>
+			{% endfor %}
+		</ul>
 	</div>
 </section>
