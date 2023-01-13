@@ -1,14 +1,21 @@
-<section class="welcome">
-	<div class="container">
+<section class="m-welcome">
+	<div class="o-container">
 		<div class="picture-wrapper">
 			<picture>
+				<source srcset="./img/image.avif" type="image/avif" />
 				<source srcset="./img/image.webp" type="image/webp" />
-				<source srcset="./img/image.jpg" />
-				<img src="./img/image.jpg" alt="" />
+				<source srcset="./img/image.jpg" type="image/jpeg" />
+				<img
+					class="tm-img"
+					src="./img/image.jpg"
+					alt="Image"
+					width="800"
+					height="400"
+				/>
 			</picture>
 		</div>
-
 		<div class="block-name">Фоновая картинка</div>
+		<div>{{data.phone}}</div>
 		<div class="block-icons">
 			Спрайт svg моно-иконок {% include
 			'../../components/icons-group/icons-group-mono.html' %}

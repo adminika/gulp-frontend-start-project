@@ -1,8 +1,7 @@
-@use "./helpers/variables";
-@use "./helpers/mixins";
-@use "./helpers/functions";
-@use "./vendor/libs";
-@use "./base/fonts";
-@use "./base/general";
-@use "../blocks/components/components";
-@use "../blocks/modules/modules";
+@import "./1-tools"; // variables & mixins & functions
+@import "./2-vendor"; // libs style
+@import "./3-settings"; // general settings
+@import "./4-keyframes"; // keyframes
+@import "../blocks/modules/modules"; // модули (m- , .m-header, .m-section и т.д )
+@import "./objects"; // объекты на многих общих страницах (o- , .o-col-4@xs)
+@import "../blocks/components/components"; // компоненты (c- , .c-polzunok, .c-icons)

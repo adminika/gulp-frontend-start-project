@@ -1,11 +1,15 @@
-import { src, dest } from 'gulp';
-import debug from 'gulp-debug';
-import config from '../config';
+import pkg from "gulp";
+const { src, dest } = pkg;
+import debug from "gulp-debug";
+import config from "../config.js";
 
-const fonts = () => src(config.src.fonts)
-  .pipe(dest(config.dest.fonts))
-	.pipe(debug({
-		"title": "Fonts"
-	}));
+const fonts = () =>
+	src(config.src.fonts)
+		.pipe(dest(config.dest.fonts))
+		.pipe(
+			debug({
+				title: "Fonts",
+			})
+		);
 
 export default fonts;

@@ -1,1 +1,2 @@
 /src/views/**/*.html
+/src/views/**/*.njk

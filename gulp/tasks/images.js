@@ -1,42 +1,63 @@
-import { src, dest } from "gulp";
+import pkg from "gulp";
+const { src, dest, parallel } = pkg;
+import path from "path";
+// import gulpIf from "gulp-if";
 import changed from "gulp-changed";
-import imagemin from "gulp-imagemin";
-import pngquant from "imagemin-pngquant";
+import squoosh from "gulp-squoosh";
+import imagemin, { svgo } from "gulp-imagemin";
 import debug from "gulp-debug";
 import browsersync from "browser-sync";
-import gulpif from "gulp-if";
-import config from "../config";
+import config from "../config.js";
 
-const images = () =>
+const imgConvert = () =>
 	src(config.src.images)
 		.pipe(changed(config.dest.images))
 		.pipe(
-			gulpif(
-				config.isProd,
-				imagemin([
-					imagemin.mozjpeg({ quality: 80 }),
-					pngquant({ quality: [0.8, 0.9] }),
-					imagemin.svgo({
-						plugins: [
-							{ removeViewBox: false },
-							{ removeUnusedNS: false },
-							{ removeUselessStrokeAndFill: false },
-							{ cleanupIDs: false },
-							{ removeComments: true },
-							{ removeEmptyAttrs: true },
-							{ removeEmptyText: true },
-							{ collapseGroups: true },
-						],
-					}),
-				])
-			)
+			squoosh(({ filePath }) => ({
+				encodeOptions: {
+					webp: { level: 2 },
+					avif: { level: 2 },
+					...(path.extname(filePath) === ".png"
+						? { oxipng: { level: 2 } }
+						: { mozjpeg: { level: 2 } }),
+				},
+			}))
 		)
-		.pipe(dest(config.dest.images))
 		.pipe(
 			debug({
 				title: "Images",
 			})
 		)
+		.pipe(dest(config.dest.images))
 		.pipe(browsersync.stream());
+
+const imgSVG = () =>
+	src(config.src.imagesSVG)
+		.pipe(changed(config.dest.images))
+		.pipe(
+			imagemin([
+				svgo({
+					plugins: [
+						{
+							name: "removeViewBox",
+							active: true,
+						},
+						{
+							name: "cleanupIDs",
+							active: false,
+						},
+					],
+				}),
+			])
+		)
+		.pipe(
+			debug({
+				title: "Images",
+			})
+		)
+		.pipe(dest(config.dest.images))
+		.pipe(browsersync.stream());
+
+const images = parallel(imgConvert, imgSVG);
 
 export default images;

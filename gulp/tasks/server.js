@@ -1,13 +1,13 @@
-import { parallel, watch } from "gulp";
+import pkg from "gulp";
+const { parallel, watch } = pkg;
 import browserSync from "browser-sync";
-import views from "./views";
-import styles from "./styles";
-import scripts from "./scripts";
-import images from "./images";
-import webp from "./webp";
-import sprites from "./sprites";
-import fonts from "./fonts";
-import config from "../config";
+import views from "./views.js";
+import styles from "./styles.js";
+import scripts from "./scripts.js";
+import images from "./images.js";
+import sprites from "./sprites.js";
+import fonts from "./fonts.js";
+import config from "../config.js";
 
 const server = (callback) => {
 	browserSync.init({
@@ -25,7 +25,6 @@ const server = (callback) => {
 	watch(config.watch.scripts, scripts);
 	watch(config.watch.images, images);
 	watch(config.watch.sprites, sprites);
-	watch(config.watch.webp, webp);
 	watch(config.watch.fonts, parallel(fonts));
 	callback();
 };

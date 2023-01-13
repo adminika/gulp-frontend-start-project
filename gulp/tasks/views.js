@@ -1,5 +1,6 @@
 /* eslint-disable indent */
-import { src, dest } from "gulp";
+import pkg from "gulp";
+const { src, dest } = pkg;
 import fs from "fs";
 import nunjucksRender from "gulp-nunjucks-render";
 import data from "gulp-data";
@@ -7,7 +8,7 @@ import plumber from "gulp-plumber";
 import gulpif from "gulp-if";
 import replace from "gulp-replace";
 import browserSync from "browser-sync";
-import config from "../config";
+import config from "../config.js";
 
 const views = () =>
 	src(config.src.views)
