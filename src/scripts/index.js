@@ -8,4 +8,4 @@
 // 	console.log("JS is work");
 // });
 
-console.log("JS is work");
+console.log("JS is Work");

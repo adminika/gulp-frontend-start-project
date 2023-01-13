@@ -46,10 +46,7 @@ const config = {
 			`./${srcPath}/views/**/*.{html,njk,nunjucks}`,
 			`./${srcPath}/blocks/**/*.{html,njk,nunjucks}`,
 		],
-		styles: [
-			`./${srcPath}/styles/**/*.{scss,sass}`,
-			`./${srcPath}/blocks/**/*.{scss,sass}`,
-		],
+		styles: [`./${srcPath}/styles/**/*.scss`, `./${srcPath}/blocks/**/*.scss`],
 		scripts: [`./${srcPath}/scripts/**/*.js`, `./${srcPath}/blocks/**/*.js`],
 		images: `./${srcPath}/assets/images/**/*.{jpg,jpeg,png,webp,avif,svg}`,
 		sprites: `./${srcPath}/assets/images/svg/**/*.svg`,

@@ -1,8 +1,7 @@
 import pkg from "gulp";
-const { src, dest, lastRun } = pkg;
+const { src, dest } = pkg;
 import dartSass from "sass";
 import gulpSass from "gulp-sass";
-import dependents from "gulp-dependents";
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
 import groupmedia from "postcss-sort-media-queries";
@@ -23,8 +22,7 @@ const styles = () => {
 		}),
 		groupmedia({}),
 	];
-	return src(config.src.styles, { since: lastRun(styles) })
-		.pipe(dependents())
+	return src(config.src.styles)
 		.pipe(gulpif(!config.isProd, sourcemaps.init()))
 		.pipe(
 			sass({
