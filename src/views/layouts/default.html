@@ -1,4 +1,4 @@
-{% import "data/data.njk" as data %}
+{% import "data/data.html" as data %}
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -20,9 +20,9 @@
   </head>
   <body>
     <div class="o-page__wrapper">
-			{% include '../../blocks/modules/header/header.njk' %}
+			{% include '../../blocks/modules/header/header.html' %}
 			{% block content %}{% endblock %}
-			{% include '../../blocks/modules/footer/footer.njk' %}
+			{% include '../../blocks/modules/footer/footer.html' %}
 		</div>
 		<script src="js/vendor.js"></script>
 		<script src="js/main.js"></script>
