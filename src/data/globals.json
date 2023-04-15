@@ -1,8 +1,28 @@
 {
 	"images": [
 		{
-			"src": "https://avatars.mds.yandex.net/i?id=cb14b7e07318ef55da820b3be3e3d485_sr-5210535-images-thumbs&n=13&exp=1",
-			"alt": "Image one alt text"
+			"src": "https://picsum.photos/350/150?random=1",
+			"alt": "Image one alt text",
+			"width": 350,
+			"height": 150
+		},
+		{
+			"src": "https://picsum.photos/350/150?random=2",
+			"alt": "Image one alt text",
+			"width": 350,
+			"height": 150
+		},
+		{
+			"src": "https://picsum.photos/350/150?random=3",
+			"alt": "Image one alt text",
+			"width": 350,
+			"height": 150
+		},
+		{
+			"src": "https://picsum.photos/350/150?random=4",
+			"alt": "Image one alt text",
+			"width": 350,
+			"height": 150
 		}
 	]
 }
